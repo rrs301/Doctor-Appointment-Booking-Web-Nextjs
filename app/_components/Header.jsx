@@ -44,7 +44,7 @@ function Header() {
             />
             <ul className='md:flex gap-8 hidden'>
                 {Menu.map((item,index)=>(
-                    <Link href={item.path}>
+                    <Link href={item.path} key={index}>
                     <li className='hover:text-primary
                     cursor-pointer hover:scale-105
                     transition-all ease-in-out'>{item.name}</li>
@@ -52,19 +52,24 @@ function Header() {
                 ))}
             </ul>
         </div>
+   
        {user?
       
        <Popover>
         <PopoverTrigger>
-            <Image src={user?.picture} alt='profile-image'
+        {user?.picture? 
+        <Image src={user?.picture} alt='profile-image'
         width={40}
         height={40}
-        className='rounded-full' />
+        className='rounded-full' />:
+        <Image src={'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png'} alt='profile-image'
+        width={40}
+        height={40}
+        className='rounded-full' />}
         </PopoverTrigger>
         <PopoverContent className="w-44">
             <ul className='flex  flex-col gap-2'>
-            {/* <li className='cursor-pointer
-             hover:bg-slate-100 p-2 rounded-md'>Profile</li> */}
+           
             <Link href={'/my-booking'} className='cursor-pointer
              hover:bg-slate-100 p-2 rounded-md'>My Booking</Link>
                 <li className='cursor-pointer
