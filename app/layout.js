@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
           {children}
           <Toaster />
         </div>
-        {/* <Footer/> */}
+        <Footer/>
         </body>
     </html>
   );
